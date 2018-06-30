@@ -22,3 +22,15 @@ const doubled = euros.reduce((total, amount) => {
   }, []);
   
   doubled // [59.52, 83.7, 93]
+
+//   We could also filter out numbers we don’t want to double by adding an if statement inside our reducer.
+const euro = [29.76, 41.85, 46.5];
+const above30 = euro.reduce((total, amount) => {
+  if (amount > 30) {
+    total.push(amount);
+  }
+  return total;
+}, []);
+above30 // [ 41.85, 46.5 ]
+
+// 
