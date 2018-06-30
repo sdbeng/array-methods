@@ -111,3 +111,12 @@ var pipeline = [
   halve
 ];
 // The reduce function stays exactly the same.
+
+// Silly Mistakes to avoid
+/*If you don’t pass in an initial value, reduce will assume the first item in your array is your initial value. This worked fine in the first few examples because we were adding up a list of numbers.
+
+If you’re trying to tally up fruit, and you leave out the initial value then things get weird. Not entering an initial value is an easy mistake to make and one of the first things you should check when debugging.
+
+Another common mistake is to forget to return the total. You must return something for the reduce function to work. Always double check and make sure that you’re actually returning the value you want.
+*/
+
