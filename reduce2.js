@@ -49,3 +49,30 @@ const flat = data.reduce((total, amount) => {
   return total.concat(amount);
 }, []);
 flat // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+
+// More often than not, information is nested in more complicated ways. For instance, lets say we just want all the colors in the data variable below.
+const data = [
+    {a: 'happy', b: 'robin', c: ['blue','green']}, 
+    {a: 'tired', b: 'panther', c: ['green','black','orange','blue']}, 
+    {a: 'sad', b: 'goldfish', c: ['green','red']}
+  ];
+
+//   We’re going to step through each object and pull out the colours. We do this by pointing amount.c for each object in the array. We then use a forEach loop to push every value in the nested array into out total.
+const colors = data.reduce((total, amount) => {
+    amount.c.forEach( color => {
+        total.push(color);
+    })
+    return total;
+  }, [])
+  colors //['blue','green','green','black','orange','blue','green','red']
+
+//   If we only need unique number then we can check to see of the number already exists in total before we push it.
+const uniqueColors = data.reduce((total, amount) => {
+    amount.c.forEach( color => {
+      if (total.indexOf(color) === -1){
+       total.push(color);
+      }
+    });
+    return total;
+  }, []);
+  uniqueColors // [ 'blue', 'red', 'green', 'black', 'orange']
