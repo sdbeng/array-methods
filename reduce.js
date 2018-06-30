@@ -1,12 +1,15 @@
-let votes = ["ruby","react","angular","python","react","vue","vue","ruby","python","vanilla js","vanilla js"]
+const votes = ["ruby","react","angular","python","react","vue","vue","ruby","python","vanilla js","vanilla js"]
 
-let initialValue = {}
+// let initialValue = {}
 
-const reducer = votes.reduce((accum, currValue) => {
-  if(!accum[currValue]){
-    accum[currValue] = 1
+const reducer = votes.reduce((tally, lang) => {
+  if(!tally[lang]){
+    tally[lang] = 1
+    console.log('first pass tally[lang]: ',tally[lang])
   }else {
-    accum[currValue] += 1
+    tally[lang] = tally[lang] + 1
+    console.log('existing tally[lang]: ',tally[lang])
   }
-  return accum
+  console.log('tally:', tally)
+  return tally
 }, {})
