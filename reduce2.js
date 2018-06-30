@@ -76,3 +76,38 @@ const uniqueColors = data.reduce((total, amount) => {
     return total;
   }, []);
   uniqueColors // [ 'blue', 'red', 'green', 'black', 'orange']
+
+//   Piping with Reduce
+// An interesting aspect of the reduce method in JavaScript is that you can reduce over functions as well as numbers and strings.
+
+// Let’s say we have a collection of simple mathematical functions. these functions allow us to increment, decrement, double and halve an amount.
+
+function increment(input) { return input + 1;}
+function decrement(input) { return input — 1; }
+function double(input) { return input * 2; }
+function halve(input) { return input / 2; }
+// For whatever reason, we need to increment, then double, then decrement an amount.
+
+/*You could write a function that takes an input, and returns (input + 1) * 2 — 1. The problem is that we know we are going to need to increment the amount three times, then double it, then decrement it, and then halve it at some point in the future. We don’t want to have to rewrite our function every time so we going to use reduce to create a pipeline.
+
+A pipeline is a term used for a list of functions that transform some initial value into a final value. Our pipeline will consist of our three functions in the order that we want to use them.
+
+let pipeline = [increment, double, decrement];
+Instead of reducing an array of values we reduce over our pipeline of functions. This works because we set the initial value as the amount we want to transform.
+*/
+
+const result = pipeline.reduce(function(total, func) {
+  return func(total);
+}, 1);
+result // 3
+// Because the pipeline is an array, it can be easily modified. If we want to decrement something three times, then double it, decrement it , and halve it then we just alter the pipeline.
+
+var pipeline = [
+  increment,
+  increment,
+  increment,
+  double,
+  decrement,
+  halve
+];
+// The reduce function stays exactly the same.
