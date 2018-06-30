@@ -13,3 +13,12 @@ const average = euros.reduce((total, amount, index, array) => {
   }
 });
 average // 39.37
+
+// double val
+const euros = [29.76, 41.85, 46.5];
+const doubled = euros.reduce((total, amount) => {
+    total.push(amount * 2);
+    return total;
+  }, []);
+  
+  doubled // [59.52, 83.7, 93]
