@@ -83,7 +83,7 @@ const uniqueColors = data.reduce((total, amount) => {
 // Let’s say we have a collection of simple mathematical functions. these functions allow us to increment, decrement, double and halve an amount.
 
 function increment(input) { return input + 1;}
-function decrement(input) { return input — 1; }
+function decrement(input) { return input — 1; } //invalid char?
 function double(input) { return input * 2; }
 function halve(input) { return input / 2; }
 // For whatever reason, we need to increment, then double, then decrement an amount.
@@ -117,6 +117,6 @@ var pipeline = [
 
 If you’re trying to tally up fruit, and you leave out the initial value then things get weird. Not entering an initial value is an easy mistake to make and one of the first things you should check when debugging.
 
-Another common mistake is to forget to return the total. You must return something for the reduce function to work. Always double check and make sure that you’re actually returning the value you want.
+Another common mistake is to forget to return the total. You must return something for the reduce function to work. Always double check and make sure that you’re actually returning the value you want. check ** mdn docs **
 */
 
